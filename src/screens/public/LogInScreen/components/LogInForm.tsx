@@ -1,7 +1,7 @@
 import { View, Text, Image, StyleSheet, Button, ScrollView, StatusBar } from 'react-native'
 import React, { useEffect, useState } from 'react'
-import CustomInput from '../../../../library/CustomInput/CustomInput'
-import CustomButton from '../../../../library/CustomButton/CustomButton'
+import CustomInput from '../../../../../library/CustomInput/CustomInput'
+import CustomButton from '../../../../../library/CustomButton/CustomButton'
 import { useNavigation } from '@react-navigation/native'
 import { Formik } from 'formik'
 import { LoginValidationSchema } from '../core/_models'
@@ -21,7 +21,11 @@ const LogInForm = () => {
     const navigation:any = useNavigation()
 
     const onSignUpPressed = () => {
-        navigation.navigate('SignUp')
+        navigation.navigate('Sign Up')
+    }
+
+    const onForgotPasswordPressed = () => {
+        navigation.navigate('Otp')
     }
 
     return (
@@ -69,6 +73,7 @@ const LogInForm = () => {
                                     isLoading={isLoading}
                                 />
                                 <Text 
+                                    onPress={() => onForgotPasswordPressed()}
                                     style=
                                     {
                                         {
