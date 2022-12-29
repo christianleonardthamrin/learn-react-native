@@ -1,17 +1,18 @@
 import { StatusBar } from 'expo-status-bar';
 import { useState } from 'react';
-import { SafeAreaView, StyleSheet, Text, View } from 'react-native';
+import { StyleSheet } from 'react-native';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 import PublicNavigation from './navigation/PublicNavigation';
-import LogInScreen from './src/screens/public/LogInScreen/LogInScreen';
-import SignUpScreen from './src/screens/public/SignUpScreen/SignUpScreen';
+import { I18nProvider, LOCALES } from './src/i18n';
 
 export default function App() {
 
   return (
-    <SafeAreaProvider style={styles.container}>
-      <PublicNavigation />
-    </SafeAreaProvider>
+    <I18nProvider locale={LOCALES.INDONESIA}>
+      <SafeAreaProvider style={styles.container}>
+        <PublicNavigation />
+      </SafeAreaProvider>
+    </I18nProvider>
   );
 }
 
