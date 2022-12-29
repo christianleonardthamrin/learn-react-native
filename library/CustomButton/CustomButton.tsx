@@ -4,7 +4,7 @@ import React from 'react'
 type PressableType = React.ComponentProps<typeof Pressable>
 
 interface CustomButtonProps extends PressableType {
-    text?: string
+    text?: React.ReactNode
     type?: string
     btnStyle?: Object
     textStyle?: Object
