@@ -12,8 +12,13 @@ export default {
         'create_acc_heading': "Let's Create Your Account",
         'full_name': 'Full Name',
         'email': 'Email',
-        'repeat_password': 'Repeat Password',
+        'confirm_password': 'Confirm Password',
         'sign_up': 'Sign Up',
-        'have_acc': 'Already Have an Account? Log In Here'
+        'have_acc': 'Already Have an Account? Log In Here',
+
+        // Validation
+        'required_msg': '{fieldName} Is Required',
+        'oneof_msg': "{fieldName} Doesn't Match",
+        'email_msg': 'Email Is Not Valid'
     }
 }

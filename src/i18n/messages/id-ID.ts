@@ -12,8 +12,13 @@ export default {
         'create_acc_heading': "Mari Buat Akunmu",
         'full_name': 'Nama Lengkap',
         'email': 'Email',
-        'repeat_password': 'Ulangi Kata Sandi',
+        'confirm_password': 'Konfirmasi Kata Sandi',
         'sign_up': 'Daftar',
-        'have_acc': 'Sudah Punya Akun? Masuk Disini'
+        'have_acc': 'Sudah Punya Akun? Masuk Disini',
+
+        // Validation
+        'required_msg': '{fieldName} Harus Diisi',
+        'oneof_msg': "{fieldName} Tidak Sama",
+        'email_msg': 'Email Tidak Valid'
     }
 }
