@@ -99,7 +99,7 @@ const SignUpForm = () => {
                                         <CustomInput 
                                             fieldName={fieldName.toString()}
                                             placeholder={fieldName.toString()}
-                                            type='DARK'
+                                            type='LIGHT'
                                             style={styles.input}
                                             secureTextEntry={true}
                                             isError={touched.confirmPassword && !!errors.confirmPassword}
@@ -113,7 +113,7 @@ const SignUpForm = () => {
                                 </FormattedMessage>
                                 <CustomButton 
                                     text={<FormattedMessage id='sign_up' />} 
-                                    type='LIGHT' 
+                                    type='DARK' 
                                     btnStyle={styles.button} 
                                     onPress={() => submit()}
                                     disabled={isLoading}
