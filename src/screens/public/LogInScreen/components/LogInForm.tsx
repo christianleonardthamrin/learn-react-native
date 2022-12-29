@@ -3,16 +3,16 @@ import React, { useEffect, useState } from 'react'
 import CustomInput from '../../../../../library/CustomInput/CustomInput'
 import CustomButton from '../../../../../library/CustomButton/CustomButton'
 import { useNavigation } from '@react-navigation/native'
-import { Formik } from 'formik'
+import { Form, Formik } from 'formik'
 import { LoginValidationSchema } from '../core/_models'
 import { SafeAreaView } from 'react-native-safe-area-context'
 import { useForm } from '../core/LoginProvider'
+import { FormattedMessage } from 'react-intl'
 
 const initValues = {
     username: '',
     password: ''
 }
-
 
 const LogInForm = () => {
     const {isLoading, submit} = useForm()
@@ -40,32 +40,40 @@ const LogInForm = () => {
                         <StatusBar barStyle={'dark-content'} />
                         <ScrollView showsVerticalScrollIndicator={false}>
                             <View style={styles.root}>
-                                <Image source={require('../../../../assets/favicon.png')} style={styles.logo} resizeMode='contain' />
-                                <CustomInput
-                                    placeholder='Username'
-                                    type='LIGHT'
-                                    style={styles.input}
-                                    isError={touched.username && !!errors.username}
-                                    editable={!isLoading}
-                                    value={values.username}
-                                    onChangeText={handleChange('username')}
-                                    onBlur={() => setFieldTouched('username')}
-                                    errorMessage={touched.username ? errors.username : ''}
+                                <Image source={require('../../../../../assets/favicon.png')} style={styles.logo} resizeMode='contain' />
+                                <FormattedMessage id='username'>
+                                    {placeholder => (
+                                        <CustomInput
+                                            placeholder={placeholder.toString()}
+                                            type='LIGHT'
+                                            style={styles.input}
+                                            isError={touched.username && !!errors.username}
+                                            editable={!isLoading}
+                                            value={values.username}
+                                            onChangeText={handleChange('username')}
+                                            onBlur={() => setFieldTouched('username')}
+                                            errorMessage={touched.username ? errors.username : ''}
                                 />
-                                <CustomInput 
-                                    placeholder='Password'
-                                    type='LIGHT'
-                                    style={styles.input}
-                                    isError={touched.password && !!errors.password}
-                                    editable={!isLoading}
-                                    secureTextEntry={true}
-                                    value={values.password}
-                                    onChangeText={handleChange('password')}
-                                    onBlur={() => setFieldTouched('password')}
-                                    errorMessage={touched.password ? errors.password : ''}
-                                />
+                                    )}
+                                </FormattedMessage>
+                                <FormattedMessage id='password'>
+                                    {placeholder => (
+                                        <CustomInput 
+                                            placeholder={placeholder.toString()}
+                                            type='LIGHT'
+                                            style={styles.input}
+                                            isError={touched.password && !!errors.password}
+                                            editable={!isLoading}
+                                            secureTextEntry={true}
+                                            value={values.password}
+                                            onChangeText={handleChange('password')}
+                                            onBlur={() => setFieldTouched('password')}
+                                            errorMessage={touched.password ? errors.password : ''}
+                                        />
+                                    )}
+                                </FormattedMessage>
                                 <CustomButton 
-                                    text='Log In' 
+                                    text={<FormattedMessage id='login'/>}
                                     type='DARK' 
                                     btnStyle={styles.button} 
                                     onPress={() => handleSubmit()}
@@ -80,8 +88,12 @@ const LogInForm = () => {
                                         ...styles.forgotPasswordText,
                                         opacity: isLoading ? 0.5 : 1
                                         }
-                                    }>Forgot Your Password?</Text>
-                                <Text style={{padding: 30, fontWeight: '600', color: '#aaa'}}>Or</Text>
+                                    }>
+                                        <FormattedMessage id='forgot_password' />
+                                    </Text>
+                                <Text style={{padding: 30, fontWeight: '600', color: '#aaa'}}>
+                                    <FormattedMessage id='or' />
+                                </Text>
                                 <Text 
                                     style=
                                     {
@@ -90,7 +102,7 @@ const LogInForm = () => {
                                             opacity: isLoading ? 0.5 : 1
                                         }
                                     } onPress={() => !isLoading ? onSignUpPressed() : null} >
-                                        Dont Have an Account? Create One
+                                        <FormattedMessage id='create_acc' />
                                 </Text>
                             </View>
                         </ScrollView>

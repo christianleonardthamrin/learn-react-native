@@ -5,6 +5,9 @@ export default {
         'hello': 'Halo',
         'username': 'Username',
         'password': 'Kata Sandi',
-        'login': 'Masuk'
+        'login': 'Masuk',
+        'or': 'Atau',
+        'forgot_password': 'Lupa Kata Sandi?',
+        'create_acc': "Belum Punya Akun? Daftar Disini"
     }
 }
