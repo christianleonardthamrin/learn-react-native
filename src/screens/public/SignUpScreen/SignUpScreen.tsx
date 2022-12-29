@@ -6,6 +6,7 @@ import { useNavigation } from '@react-navigation/native'
 import { SafeAreaView } from 'react-native-safe-area-context'
 import { Formik } from 'formik'
 import { initValues, SignUpValidationSchema } from './core/_models'
+import { FormattedMessage } from 'react-intl'
 
 const SignUpScreen = () => {
     const navigation:any = useNavigation()
@@ -25,75 +26,97 @@ const SignUpScreen = () => {
                     <SafeAreaView style={{flex: 1, backgroundColor: '#f9fbfa'}}>
                         <ScrollView showsVerticalScrollIndicator={false}>
                             <View style={styles.root}>
-                                <Image source={require('../../../assets/favicon.png')} style={styles.logo} resizeMode='contain' />
+                                <Image source={require('../../../../assets/favicon.png')} style={styles.logo} resizeMode='contain' />
                                 <Text style={styles.heading}>
-                                    Let's Create Your Account
+                                    <FormattedMessage id='create_acc_heading' />
                                 </Text>
-                                <CustomInput
-                                    placeholder='Full Name'
-                                    type='LIGHT'
-                                    style={styles.input}
-                                    isError={!!errors.fullName}
-                                    editable={!isLoading}
-                                    value={values.fullName}
-                                    onChangeText={handleChange('fullName')}
-                                    errorMessage={errors.fullName}
-                                />
-                                <CustomInput
-                                    placeholder='Email'
-                                    type='LIGHT'
-                                    style={styles.input}
-                                    isError={!!errors.email}
-                                    editable={!isLoading}
-                                    value={values.email}
-                                    onChangeText={handleChange('email')}
-                                    errorMessage={errors.email}
-                                />
-                                <CustomInput
-                                    placeholder='Username'
-                                    type='LIGHT'
-                                    style={styles.input}
-                                    isError={!!errors.username}
-                                    editable={!isLoading}
-                                    value={values.username}
-                                    onChangeText={handleChange('username')}
-                                    errorMessage={errors.username}
-                                />
-                                <CustomInput 
-                                    placeholder='Password'
-                                    type='LIGHT'
-                                    style={styles.input}
-                                    secureTextEntry={true}
-                                    isError={!!errors.password}
-                                    editable={!isLoading}
-                                    value={values.password}
-                                    onChangeText={handleChange('password')}
-                                    errorMessage={errors.password}
-                                />
-                                <CustomInput 
-                                    placeholder='Repeat Password'
-                                    type='LIGHT'
-                                    style={styles.input}
-                                    secureTextEntry={true}
-                                    isError={!!errors.confirmPassword}
-                                    editable={!isLoading}
-                                    value={values.confirmPassword}
-                                    onChangeText={handleChange('confirmPassword')}
-                                    errorMessage={errors.confirmPassword}
-                                />
+                                <FormattedMessage id='full_name'>
+                                    {placeholder => (
+                                        <CustomInput
+                                            placeholder={placeholder.toString()}
+                                            type='LIGHT'
+                                            style={styles.input}
+                                            isError={!!errors.fullName}
+                                            editable={!isLoading}
+                                            value={values.fullName}
+                                            onChangeText={handleChange('fullName')}
+                                            errorMessage={errors.fullName}
+                                        />
+                                    )}
+                                </FormattedMessage>
+                                <FormattedMessage id='email'>
+                                    {placeholder => (
+                                        <CustomInput
+                                            placeholder={placeholder.toString()}
+                                            type='LIGHT'
+                                            style={styles.input}
+                                            isError={!!errors.email}
+                                            editable={!isLoading}
+                                            value={values.email}
+                                            onChangeText={handleChange('email')}
+                                            errorMessage={errors.email}
+                                        />
+                                    )}
+                                </FormattedMessage>
+                                <FormattedMessage id='username'>
+                                    {placeholder => (
+                                        <CustomInput
+                                            placeholder={placeholder.toString()}
+                                            type='LIGHT'
+                                            style={styles.input}
+                                            isError={!!errors.username}
+                                            editable={!isLoading}
+                                            value={values.username}
+                                            onChangeText={handleChange('username')}
+                                            errorMessage={errors.username}
+                                        />
+                                    )}
+                                </FormattedMessage>
+                                <FormattedMessage id='password'>
+                                    {placeholder => (
+                                        <CustomInput 
+                                            placeholder={placeholder.toString()}
+                                            type='LIGHT'
+                                            style={styles.input}
+                                            secureTextEntry={true}
+                                            isError={!!errors.password}
+                                            editable={!isLoading}
+                                            value={values.password}
+                                            onChangeText={handleChange('password')}
+                                            errorMessage={errors.password}
+                                        />
+                                    )}
+                                </FormattedMessage>
+                                <FormattedMessage id='repeat_password'>
+                                    {placeholder => (
+                                        <CustomInput 
+                                            placeholder={placeholder.toString()}
+                                            type='LIGHT'
+                                            style={styles.input}
+                                            secureTextEntry={true}
+                                            isError={!!errors.confirmPassword}
+                                            editable={!isLoading}
+                                            value={values.confirmPassword}
+                                            onChangeText={handleChange('confirmPassword')}
+                                            errorMessage={errors.confirmPassword}
+                                        />
+                                    )}
+                                </FormattedMessage>
                                 <CustomButton 
-                                    text='Sign Up' 
+                                    text={<FormattedMessage id='sign_up' />} 
                                     type='DARK' 
                                     btnStyle={styles.button} 
                                     // onPress={() => console.log('hi')}
                                     disabled={false}
                                 />
-                                <Text style={{padding: 30, fontWeight: '600', color: '#aaa'}}>Or</Text>
+                                <Text style={{padding: 30, fontWeight: '600', color: '#aaa'}}>
+                                    <FormattedMessage id='or'/>
+                                </Text>
                                 <Text 
                                     style={{fontWeight: '600'}}
                                     onPress={() => onLogInPressed()}
                                 >
-                                    Already Have an Account? Log In Here
+                                    <FormattedMessage id='have_acc' />
                                 </Text>
                             </View>
                         </ScrollView>
