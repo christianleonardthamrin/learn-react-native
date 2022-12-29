@@ -1,5 +1,12 @@
 import * as Yup from 'yup'
 
+export interface FormProviderParam {
+  id?: string
+  restApi: string
+  onSubmitSuccess?: any
+  children: any
+}
+
 export interface SignUpForm {
     fullName: string
     email: string
@@ -18,14 +25,15 @@ export const initValues:SignUpForm = {
 
 export const SignUpValidationSchema = Yup.object({
     fullName: Yup.string()
-            .required('Name is required'),
+            .required('required_msg'),
     email: Yup.string()
-        .required('Email is required'),
+        .required('required_msg')
+        .email('email_msg'),
     username: Yup.string()
-            .required('Username is required'),
+            .required('required_msg'),
     password: Yup.string()
-            .required('Password is required'),
+            .required('required_msg'),
     confirmPassword: Yup.string()
-            .required('Confirm Password is required')
-            .oneOf([Yup.ref('password'), null], "Password doesn't match!")
+            .required('required_msg')
+            .oneOf([Yup.ref('password'), null], 'oneof_msg')
 })

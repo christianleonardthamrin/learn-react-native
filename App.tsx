@@ -9,16 +9,9 @@ export default function App() {
 
   return (
     <I18nProvider locale={LOCALES.INDONESIA}>
-      <SafeAreaProvider style={styles.container}>
+      <SafeAreaProvider>
         <PublicNavigation />
       </SafeAreaProvider>
     </I18nProvider>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    // flex: 1,
-    // backgroundColor: '#f9fbfc'
-  },
-});

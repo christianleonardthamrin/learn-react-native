@@ -42,9 +42,9 @@ const LogInForm = () => {
                             <View style={styles.root}>
                                 <Image source={require('../../../../../assets/favicon.png')} style={styles.logo} resizeMode='contain' />
                                 <FormattedMessage id='username'>
-                                    {placeholder => (
+                                    {fieldName => (
                                         <CustomInput
-                                            placeholder={placeholder.toString()}
+                                            fieldName={fieldName.toString()}
                                             type='LIGHT'
                                             style={styles.input}
                                             isError={touched.username && !!errors.username}
@@ -53,13 +53,13 @@ const LogInForm = () => {
                                             onChangeText={handleChange('username')}
                                             onBlur={() => setFieldTouched('username')}
                                             errorMessage={touched.username ? errors.username : ''}
-                                />
+                                        />
                                     )}
                                 </FormattedMessage>
                                 <FormattedMessage id='password'>
-                                    {placeholder => (
+                                    {fieldName => (
                                         <CustomInput 
-                                            placeholder={placeholder.toString()}
+                                            fieldName={fieldName.toString()}
                                             type='LIGHT'
                                             style={styles.input}
                                             isError={touched.password && !!errors.password}

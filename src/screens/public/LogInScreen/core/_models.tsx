@@ -2,9 +2,9 @@ import * as Yup from 'yup'
 
 export const LoginValidationSchema = Yup.object({
     username: Yup.string()
-        .required('Username is required'),
+        .required('required_msg'),
     password: Yup.string()
-        .required('Password is required')
+        .required('required_msg')
 })
 
 export interface FormProviderParam {
